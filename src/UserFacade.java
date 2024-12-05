@@ -13,7 +13,7 @@ public class UserFacade {
      * Default constructor
      */
     public UserFacade() {
-        userDAO = factory.createUserDAO();
+        //userDAO = factory.createUserDAO();
     }
 
 
