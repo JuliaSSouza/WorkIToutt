@@ -5,7 +5,7 @@ import java.util.*;
 /**
  * 
  */
-public class UserDAOMySQL {
+public class UserDAOMySQL extends UserDAO {
 
     /**
      * Default constructor

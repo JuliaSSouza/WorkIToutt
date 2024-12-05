@@ -5,7 +5,7 @@ import java.util.*;
 /**
  * 
  */
-public class UserDAO {
+abstract public class UserDAO {
 
     /**
      * Default constructor

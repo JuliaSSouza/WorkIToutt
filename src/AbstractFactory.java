@@ -1,4 +1,4 @@
 public abstract class AbstractFactory {
     
-    public abstract User createUserDAO();
+    public abstract UserDAO createUserDAO();
 }
