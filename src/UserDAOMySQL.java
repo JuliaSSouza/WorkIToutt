@@ -16,7 +16,7 @@ public class UserDAOMySQL extends UserDAO {
     /**
      * @return
      */
-    public User getUserByID() {
+    public User getUserByID(String id) {
         // TODO implement here
         return null;
     }

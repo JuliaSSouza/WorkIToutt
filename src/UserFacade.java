@@ -37,9 +37,9 @@ public class UserFacade {
     private void logIn(String id, String password) {
         currentUser = new User(id, password);
         User tempUser = userDAO.getUserByID(id);
-        if (user != null){
-            if(user.getPassword().equals(currentUser.getPassword())){
-                currentUser = user;
+        if (tempUser != null){
+            if(tempUser.getUserPassword().equals(currentUser.getUserPassword())){
+                currentUser = tempUser;
                 System.out.print("Login was successfull");
             }
             System.out.println("Invalid username or password");

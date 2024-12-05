@@ -16,7 +16,7 @@ abstract public class UserDAO {
     /**
      * @return
      */
-    public User getUserByID() {
+    public User getUserByID(String id) {
         // TODO implement here
         return null;
     }
