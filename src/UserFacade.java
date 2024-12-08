@@ -13,7 +13,8 @@ public class UserFacade {
      * Default constructor
      */
     public UserFacade() {
-        //userDAO = factory.createUserDAO();
+        factory = MySQLFactory.getInstance();
+        userDAO = factory.createUserDAO();
     }
 
 
@@ -34,16 +35,20 @@ public class UserFacade {
      * @param id 
      * @param password
      */
-    private void logIn(String id, String password) {
+    public boolean logIn(String id, String password) {
         currentUser = new User(id, password);
         User tempUser = userDAO.getUserByID(id);
+        System.out.println(tempUser.toString()+"");
         if (tempUser != null){
             if(tempUser.getUserPassword().equals(currentUser.getUserPassword())){
                 currentUser = tempUser;
                 System.out.print("Login was successfull");
+                return true;
             }
             System.out.println("Invalid username or password");
+            return false;
         }
+        return false;
         // TODO implement here
     }
 

@@ -6,6 +6,7 @@ import java.util.*;
  * 
  */
 abstract public class UserDAO {
+    private ArrayList<User> userlist;
 
     /**
      * Default constructor
@@ -16,9 +17,7 @@ abstract public class UserDAO {
     /**
      * @return
      */
-    public User getUserByID(String id) {
-        // TODO implement here
-        return null;
-    }
+    public abstract User getUserByID(String id);
+
 
 }

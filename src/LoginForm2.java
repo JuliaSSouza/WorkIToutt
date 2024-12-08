@@ -10,13 +10,15 @@ import java.awt.geom.RoundRectangle2D;
  * @author Joel
  */
 public class LoginForm2 extends javax.swing.JFrame {
+    UserFacade uf;
 
     /**
      * Creates new form Login_Form2
      */
     public LoginForm2() {
         //setUndecorated(true);
-        
+
+        uf = new UserFacade();
         initComponents();
         
         //setShape(new RoundRectangle2D.Double(0, 0, getWidth(), getHeight(), 20, 20));
@@ -154,15 +156,16 @@ public class LoginForm2 extends javax.swing.JFrame {
         pack();
     }// </editor-fold>                        
 
-    private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {                                                
-        // TODO add your handling code here:
+    private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) { 
     }                                               
 
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {                                            
         // TODO add your handling code here:
     }                                           
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {   
+        System.out.println("u =" + jTextField2.getText() + "p=" + jPasswordField1.getText());                                     
+        uf.logIn(jTextField2.getText(),jPasswordField1.getText());
         // TODO add your handling code here:
     }                                        
 

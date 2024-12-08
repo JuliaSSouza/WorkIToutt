@@ -7,7 +7,7 @@ public class MySQLFactory extends AbstractFactory {
 
     }
 
-    public MySQLFactory getInstance() {
+    public static MySQLFactory getInstance() {
         if (instance == null) {
             instance = new MySQLFactory();
         }
