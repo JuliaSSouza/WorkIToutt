@@ -15,9 +15,9 @@ public class MySQLFactory extends AbstractFactory {
     }
 
     @Override
-    public UserDAO createUserDAO() {
+    public UserDAOMySQL createUserDAO() {
         // TODO Auto-generated method stub
-        UserDAO userDao = new UserDAOMySQL();
+        UserDAOMySQL userDao = new UserDAOMySQL();
         return userDao;
     }
     

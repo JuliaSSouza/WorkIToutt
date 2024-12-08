@@ -6,7 +6,7 @@
 public class UserFacade {
 
     UserDAOMySQL userDAO;
-    AbstractFactory factory;
+    MySQLFactory factory;
     /**
      * Default constructor
      */
@@ -35,7 +35,7 @@ public class UserFacade {
      */
     public boolean logIn(String id, String password) {
         currentUser = new User(id, password);
-        User tempUser = userDAO.getUserByID(id);
+        User tempUser = userDAO.getUserByID(id, password);
         System.out.println(tempUser.toString()+"");
         if (tempUser != null){
             if(tempUser.getUserPassword().equals(currentUser.getUserPassword())){
