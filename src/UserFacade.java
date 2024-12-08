@@ -1,13 +1,11 @@
 
-import java.io.*;
-import java.util.*;
 
 /**
  * 
  */
 public class UserFacade {
 
-    UserDAO userDAO;
+    UserDAOMySQL userDAO;
     AbstractFactory factory;
     /**
      * Default constructor
@@ -33,10 +31,10 @@ public class UserFacade {
     /**
      * @param id 
      * @param password
-     */
+     */ 
     private void logIn(String id, String password) {
         currentUser = new User(id, password);
-        User tempUser = userDAO.getUserByID(id);
+        User tempUser = userDAO.getUserByID(id, password);
         if (tempUser != null){
             if(tempUser.getUserPassword().equals(currentUser.getUserPassword())){
                 currentUser = tempUser;
@@ -44,7 +42,6 @@ public class UserFacade {
             }
             System.out.println("Invalid username or password");
         }
-        // TODO implement here
     }
 
 }
