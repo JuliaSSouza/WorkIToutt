@@ -1,34 +1,43 @@
-
-import java.io.*;
-import java.util.*;
+import java.sql.*;
 
 /**
  * 
  */
 public class UserDAOMySQL extends UserDAO {
-    private ArrayList<User> userlist;
+    Connection conn;
 
-    /**
-     * Default constructor
-     */
+
     public UserDAOMySQL() {
-        userlist = new ArrayList<User>();
-        for (int i = 0; i < 10; i++) {
-            userlist.add(new User(i + "", i + ""));
-        }
     }
 
+   
     /**
-     * @return
+     * Method to check if a user exists by username.
+     * @param username The username to check.
+     * @return true if user exists, false otherwise.
      */
-    public User getUserByID(String id) {
-        for 
-        (User user : userlist) {
-            if (user.getUserName().equals(id)) {
-                return user;
-            }
+    public User getUserByID(String username, String password) {
+
+        if (checkUser(username) == true) {
+            User currentUser = new User(username, password);
+            return currentUser;
+        } else { 
+            return null;        
         }
-        return null;
     }
 
+    public Boolean checkUser(String username) {
+
+        String query = "SELECT User FROM mysql.user WHERE UserName = ?";
+        try (PreparedStatement pstmt = conn.prepareStatement(query)) {
+            pstmt.setString(1, username);
+
+            try (ResultSet rs = pstmt.executeQuery()) {
+                return rs.next();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 }

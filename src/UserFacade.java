@@ -1,13 +1,11 @@
 
-import java.io.*;
-import java.util.*;
 
 /**
  * 
  */
 public class UserFacade {
 
-    UserDAO userDAO;
+    UserDAOMySQL userDAO;
     AbstractFactory factory;
     /**
      * Default constructor
