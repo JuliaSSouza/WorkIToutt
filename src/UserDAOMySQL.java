@@ -8,6 +8,8 @@ public class UserDAOMySQL extends UserDAO {
 
 
     public UserDAOMySQL() {
+        Create_DB db = new Create_DB();
+        conn = db.conectaBD();
     }
 
    
@@ -28,7 +30,7 @@ public class UserDAOMySQL extends UserDAO {
 
     public Boolean checkUser(String username) {
 
-        String query = "SELECT User FROM mysql.user WHERE UserName = ?";
+        String query = "SELECT UserName FROM mysql.user WHERE UserName = ?";
         try (PreparedStatement pstmt = conn.prepareStatement(query)) {
             pstmt.setString(1, username);
 

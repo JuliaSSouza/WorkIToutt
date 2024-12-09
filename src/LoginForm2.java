@@ -4,6 +4,9 @@
  */
 
 import java.awt.geom.RoundRectangle2D;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 
 /**
  *
@@ -17,7 +20,7 @@ public class LoginForm2 extends javax.swing.JFrame {
      */
     public LoginForm2() {
         //setUndecorated(true);
-
+        
         uf = new UserFacade();
         initComponents();
         
