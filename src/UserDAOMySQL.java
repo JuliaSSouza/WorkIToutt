@@ -29,8 +29,10 @@ public class UserDAOMySQL extends UserDAO {
     }
 
     public Boolean checkUser(String username) {
+        System.out.print("HEJJJ!" + username);
 
-        String query = "SELECT UserName FROM mysql.user WHERE UserName = ?";
+
+        String query = "SELECT UserName FROM vrd.user WHERE UserName = ?";
         try (PreparedStatement pstmt = conn.prepareStatement(query)) {
             pstmt.setString(1, username);
 
