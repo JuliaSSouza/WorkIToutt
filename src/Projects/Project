@@ -1,0 +1,57 @@
+import ArrayList;
+import list;
+
+public Class Project() {
+    String name;
+    String desc;
+    protected ArrayList<Task> currentTasks = new ArrayList<Task>();
+    protected ArrayList<Task> finishedTasks;
+    protected ArrayList<Membership> members;
+    String[] tags = new String[100];
+
+
+    public Project(String name, String desc) {
+        this.name = name;
+        this.desc = desc;
+
+    }
+
+    //adds a task to the list of task
+    public Boolean generateTask(Task task) {
+        if (!currentTasks.contain(task)) {
+            currentTasks.add(task);
+            return true;
+        } else { 
+            return false;
+        }
+    }
+
+    //removes a task if it exists in current tasks
+    public String finishTask(Task task) {
+        if (currentTasks.contains(task)) {
+            currentTasks.remove(task);
+            finishedTasks.add(task);
+            return "Succesfully finished";
+        } else {
+            return "Task doesn't exist, try changing the name"
+        }
+        
+    }
+
+    //adds members to the project
+    public addMember(Membership m) {
+        members.add(m);
+    }
+
+
+    //remvoes members from the project
+    public removeMember(Membership m) {
+        members.remove(m);
+    }
+
+    //Add tags in order to sort projects based on key words
+    public addTags(String text) {
+        tags = text.split();
+
+    }
+}
