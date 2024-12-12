@@ -74,7 +74,6 @@ public class RegisterUI extends javax.swing.JFrame {
         EmailText.setForeground(new java.awt.Color(255, 255, 255));
         EmailText.setText("Email");
 
-        PasswordText.setEditable(false);
         PasswordText.setBackground(new java.awt.Color(255, 153, 191));
         PasswordText.setForeground(new java.awt.Color(255, 255, 255));
         PasswordText.setText("Password");
@@ -97,6 +96,23 @@ public class RegisterUI extends javax.swing.JFrame {
         CreateButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CreateButtonActionPerformed(evt);
+                String username, name, phone, email, password;
+
+                username = UserNameText.getText();
+                name = NameText.getText();
+                phone = PhoneText.getText();
+                email = EmailText.getText();
+                password = PasswordText.getText();
+
+                User user = new User();
+                user.setUserName(username);
+                user.setName(name);
+                user.setPhone(phone);
+                user.setEmail(email);
+                user.setPassword(password);
+
+                RegisterDAO rdao = new RegisterDAO();
+                rdao.registerUser(user);
             }
         });
 
