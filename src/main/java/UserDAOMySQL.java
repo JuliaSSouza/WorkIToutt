@@ -1,11 +1,15 @@
 package main.java;
 import java.sql.*;
 
+import javax.swing.JOptionPane;
+
 /**
  * 
  */
 public class UserDAOMySQL extends UserDAO {
     Connection conn;
+    PreparedStatement pstm;
+
 
 
     public UserDAOMySQL() {
@@ -30,8 +34,6 @@ public class UserDAOMySQL extends UserDAO {
     }
 
     public Boolean checkUser(String username) {
-        System.out.print("HEJJJ!" + username);
-
 
         String query = "SELECT UserName FROM vrd.user WHERE UserName = ?";
         try (PreparedStatement pstmt = conn.prepareStatement(query)) {
@@ -43,6 +45,28 @@ public class UserDAOMySQL extends UserDAO {
         } catch (Exception e) {
             e.printStackTrace();
             return false;
+        }
+    }
+
+    public void registerUser(User user){
+       
+        String sql = "insert into vrd.user (UserName, Password, Email, Phone, Name) values (?, ?, ?, ?, ?)";
+        try {
+            pstm = conn.prepareStatement(sql);
+			pstm.setString(1, user.getUserName());
+			pstm.setString(2, user.getUserPassword());
+			pstm.setString(3, user.getEmail());
+			pstm.setString(4, user.getPhone());
+			pstm.setString(5, user.getName());
+			
+            pstm.execute();
+			JOptionPane.showMessageDialog(null, "User succesfully created!");
+			pstm.close();
+
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }

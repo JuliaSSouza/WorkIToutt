@@ -190,7 +190,9 @@ public class LoginForm2 extends javax.swing.JFrame {
     }                                        
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {    
-        registerview = new RegisterUI();  
+        registerview = new RegisterUI();
+        setVisible(false); //you can't see me!
+        dispose();
         RegisterUI.runner();                                   
         // TODO add your handling code here:
     }                                        

@@ -9,11 +9,13 @@ package main.java;
  * @author Júlia
  */
 public class RegisterUI extends javax.swing.JFrame {
+    UserFacade uf;
 
     /**
      * Creates new form RegisterUI
      */
     public RegisterUI() {
+        uf = new UserFacade();
         initComponents();
     }
 
@@ -36,6 +38,9 @@ public class RegisterUI extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         CreateButton = new javax.swing.JButton();
+
+        jPanel1.setBackground(new java.awt.Color(0, 60, 107));
+        jPanel1.setPreferredSize(new java.awt.Dimension(960, 540));
 
         jTextField4.setText("Phone");
 
@@ -93,6 +98,7 @@ public class RegisterUI extends javax.swing.JFrame {
 
         CreateButton.setBackground(new java.awt.Color(255, 0, 102));
         CreateButton.setText("Create Account");
+
         CreateButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CreateButtonActionPerformed(evt);
@@ -104,15 +110,7 @@ public class RegisterUI extends javax.swing.JFrame {
                 email = EmailText.getText();
                 password = PasswordText.getText();
 
-                User user = new User();
-                user.setUserName(username);
-                user.setName(name);
-                user.setPhone(phone);
-                user.setEmail(email);
-                user.setPassword(password);
-
-                RegisterDAO rdao = new RegisterDAO();
-                rdao.registerUser(user);
+                uf.register(username, name, phone, email, password);
             }
         });
 

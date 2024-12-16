@@ -13,10 +13,10 @@ public class RegisterDAO {
 
     public void registerUser(User user){
        
-        String sql = "insert into vrd.user (UserName, Password, Email, PhoneNumber, Name) values (?, ?, ?, ?, ?)";
+        String sql = "insert into vrd.user (UserName, Password, Email, Phone, Name) values (?, ?, ?, ?, ?)";
         try {
             pstm = conn.prepareStatement(sql);
-			pstm.setString(1, user. getUserName());
+			pstm.setString(1, user.getUserName());
 			pstm.setString(2, user.getUserPassword());
 			pstm.setString(3, user.getEmail());
 			pstm.setString(4, user.getPhone());
