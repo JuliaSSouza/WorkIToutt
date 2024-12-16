@@ -39,6 +39,7 @@ public class UserFacade {
             if(tempUser.getUserPassword().equals(currentUser.getUserPassword())){
                 currentUser = tempUser;
                 System.out.print("Login was successfull");
+                
                 return true;
             }
             System.out.println("Invalid username or password");
