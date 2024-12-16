@@ -1,5 +1,4 @@
-
-
+package main.java;
 /**
  * 
  */
@@ -36,7 +35,6 @@ public class UserFacade {
     public boolean logIn(String id, String password) {
         currentUser = new User(id, password);
         User tempUser = userDAO.getUserByID(id, password);
-        System.out.println(tempUser.toString()+"");
         if (tempUser != null){
             if(tempUser.getUserPassword().equals(currentUser.getUserPassword())){
                 currentUser = tempUser;
@@ -46,6 +44,7 @@ public class UserFacade {
             System.out.println("Invalid username or password");
             return false;
         }
+        System.out.println("Invalid username or password");
         return false;
         // TODO implement here
     }

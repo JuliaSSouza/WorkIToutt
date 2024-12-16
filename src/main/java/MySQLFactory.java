@@ -1,3 +1,5 @@
+package main.java;
+
 public class MySQLFactory extends AbstractFactory {
     private static MySQLFactory instance;
 

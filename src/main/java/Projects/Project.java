@@ -1,12 +1,13 @@
-import ArrayList;
-import list;
+package main.java.Projects;
 
-public Class Project() {
+import java.util.*;
+
+public class Project {
     String name;
     String desc;
-    protected ArrayList<Task> currentTasks = new ArrayList<Task>();
-    protected ArrayList<Task> finishedTasks;
-    protected ArrayList<Membership> members;
+    protected ArrayList<Object> currentTasks = new ArrayList<Object>();
+    protected ArrayList<Object> finishedTasks;
+    protected ArrayList<Object> members;
     String[] tags = new String[100];
 
 
@@ -17,8 +18,8 @@ public Class Project() {
     }
 
     //adds a task to the list of task
-    public Boolean generateTask(Task task) {
-        if (!currentTasks.contain(task)) {
+    public Boolean generateTask(Object task) {
+        if (!currentTasks.contains(task)) {
             currentTasks.add(task);
             return true;
         } else { 
@@ -27,31 +28,32 @@ public Class Project() {
     }
 
     //removes a task if it exists in current tasks
-    public String finishTask(Task task) {
+    public String finishTask(Object task) {
         if (currentTasks.contains(task)) {
             currentTasks.remove(task);
             finishedTasks.add(task);
             return "Succesfully finished";
         } else {
-            return "Task doesn't exist, try changing the name"
+            return "Task doesn't exist, try changing the name";
         }
         
     }
 
     //adds members to the project
-    public addMember(Membership m) {
-        members.add(m);
+    public Boolean addMember(Object membership) {
+        return members.add(membership);
     }
 
 
     //remvoes members from the project
-    public removeMember(Membership m) {
-        members.remove(m);
+    public Boolean removeMember(Object membership) {
+        return members.remove(membership);
     }
 
     //Add tags in order to sort projects based on key words
-    public addTags(String text) {
-        tags = text.split();
+    public String[] addTags(String text) {
+        tags = text.split(" ");
+        return tags;
 
     }
 }
