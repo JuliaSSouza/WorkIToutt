@@ -9,6 +9,8 @@ import java.util.*;
 public class User {
     private String userName;
     private String password;
+
+    
     /**
      * Default constructor
      */
